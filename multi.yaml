@@ -1,0 +1,25 @@
+apiVersion: skaffold/v2beta23
+kind: Config
+metadata:
+  name: user-api-mock
+deploy:
+  helm:
+    releases:
+    - name: user-api-mock
+      chartPath: helm
+      setValues:
+        name: user-api
+        port: 20001
+---
+apiVersion: skaffold/v2beta23
+kind: Config
+metadata:
+  name: company-api-mock
+deploy:
+  helm:
+    releases:
+    - name: company-api-mock
+      chartPath: helm
+      setValues:
+        name: company-api
+        port: 20002

@@ -1,0 +1,12 @@
+apiVersion: skaffold/v2beta23
+kind: Config
+metadata:
+  name: wiremock
+deploy:
+  helm:
+    releases:
+    - name: wiremock
+      chartPath: helm
+      setValueTemplates:
+        name: '{{ .NAME }}'
+        port: '{{ .PORT }}'
